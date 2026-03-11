@@ -1,5 +1,6 @@
 import leia from "readline-sync"
 import { colors } from "./src/util/Colors";
+import { Conta } from "./src/model/Conta";
 
 export function main() {
 
@@ -32,7 +33,7 @@ export function main() {
         if (opcao == 9) {
             console.log("\nBanco do Brazil com Z - O seu Futuro começa aqui!");
             sobre();
-            process.exit(0);
+            
         }
 
         switch (opcao) {
