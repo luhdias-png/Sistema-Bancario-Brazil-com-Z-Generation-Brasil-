@@ -1,6 +1,8 @@
 import leia from "readline-sync"
 import { colors } from "./src/util/Colors";
 import { Conta } from "./src/model/Conta";
+import { ContaPoupanca } from "./src/model/ContaPoupanca";
+import { ContaCorrente } from "./src/model/ContaCorrente";
 
 export function main() {
 
@@ -10,17 +12,24 @@ export function main() {
     const conta: Conta = new Conta(32,2026,1,"Lucas",300);
     conta.visualizar();
     conta.sacar(300);
-    console.log("========");
     conta.visualizar();
     conta.depositar(1000);
 
-    //Teste usando Classe da Conta(conta 2)
-    const conta2: Conta = new Conta(2,2030,2,"Andre",3000);
-    conta2.visualizar();
-    conta2.sacar(2000);
-    console.log("========");
-    conta2.visualizar();
-    conta2.depositar(4000);
+    //Teste usando Classe da Conta Poupanca.
+    const contapoupanca: ContaPoupanca = new ContaPoupanca(4,333444,2,"André",10000,11);
+    contapoupanca.visualizar();
+    contapoupanca.sacar(6000);
+    contapoupanca.visualizar();
+    contapoupanca.depositar(4000);
+    
+    //Teste usando Classe da Conta Corrente.
+    const contacorrente: ContaCorrente = new ContaCorrente(5,444555,1,"Plinio",1500,20)
+    contacorrente.visualizar();
+    contacorrente.sacar(3000);
+    contacorrente.visualizar();
+    contacorrente.depositar(25);
+    contacorrente.visualizar();
+
 
     while (true) {
 
