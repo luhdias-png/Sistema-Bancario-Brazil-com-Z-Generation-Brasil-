@@ -13,7 +13,7 @@ export class ContaPoupanca extends Conta{
     }
 
     public set aniversario(aniversario: number){
-        this._aniversario
+        this._aniversario = aniversario
     }
 
     public visualizar(): void {

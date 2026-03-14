@@ -1,34 +1,30 @@
 import leia from "readline-sync"
 import { colors } from "./src/util/Colors";
-import { Conta } from "./src/model/Conta";
 import { ContaPoupanca } from "./src/model/ContaPoupanca";
 import { ContaCorrente } from "./src/model/ContaCorrente";
+import { ContaController } from "./src/controller/ContaController";
 
 export function main() {
 
-    let opcao: number;
+    let opcao, numero, agencia, tipo, saldo, limite, aniversario: number;
+    let titular: string;
+    const tiposConta = ['Conta Corrente','Conta Poupanca'];
 
-    //Teste usando Classe da Conta(conta 1):
-    const conta: Conta = new Conta(32,2026,1,"Lucas",300);
-    conta.visualizar();
-    conta.sacar(300);
-    conta.visualizar();
-    conta.depositar(1000);
+    let contas: ContaController = new ContaController();
 
-    //Teste usando Classe da Conta Poupanca.
-    const contapoupanca: ContaPoupanca = new ContaPoupanca(4,333444,2,"André",10000,11);
-    contapoupanca.visualizar();
-    contapoupanca.sacar(6000);
-    contapoupanca.visualizar();
-    contapoupanca.depositar(4000);
-    
-    //Teste usando Classe da Conta Corrente.
-    const contacorrente: ContaCorrente = new ContaCorrente(5,444555,1,"Plinio",1500,20)
-    contacorrente.visualizar();
-    contacorrente.sacar(3000);
-    contacorrente.visualizar();
-    contacorrente.depositar(25);
-    contacorrente.visualizar();
+    let cc1: ContaCorrente = new ContaCorrente(contas.gerarNumero(), 123, 1, "João da Silva", 1000, 100.0);
+    contas.cadastrar(cc1);
+
+    let cc2: ContaCorrente = new ContaCorrente(contas.gerarNumero(), 124, 1, "Maria da Silva", 2000, 100.0);
+    contas.cadastrar(cc2);
+
+    let cp1: ContaPoupanca = new ContaPoupanca(contas.gerarNumero(), 125, 2, "Mariana dos Santos", 4000, 12);
+    contas.cadastrar(cp1);
+
+    let cp2: ContaPoupanca = new ContaPoupanca(contas.gerarNumero(), 125, 2, "Juliana Ramos", 8000, 15);
+    contas.cadastrar(cp2);
+
+    contas.listarTodas();
 
 
     while (true) {
